@@ -213,6 +213,23 @@ var Player = function(name, health, strength, speed){
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 
+ this.discardItem = function(item){
+
+  if(!(this.pack.indexOf(item) === -1)){
+
+    console.log(this.name, " has discarded ", item.name);
+
+    this.pack.splice(this.pack.indexOf(item), 1);
+    return true;
+
+  } else{
+
+    console.log("you dont own that item");
+    return false;
+
+  }
+
+ };
 
 /**
  * Player Class Method => equip(itemToEquip)
