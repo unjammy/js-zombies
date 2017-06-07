@@ -103,6 +103,29 @@ Food.prototype = Object.create(Item.prototype, {
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
 
+var Player = function(name, health, strength, speed){
+  this.pack;
+  this.name = name;
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  this.isAlive = true;
+  this.equipped = false;
+
+  this.getPack = function(){
+
+    if(this.pack){
+      return this.pack;
+    } else {
+      return [];
+    }
+  };
+
+  this.getMaxHealth = function(){
+    return this.health;
+  };
+
+
 
 /**
  * Player Class Method => checkPack()
@@ -232,6 +255,7 @@ Food.prototype = Object.create(Item.prototype, {
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
 
+};
 
 /**
  * Class => Zombie(health, strength, speed)
