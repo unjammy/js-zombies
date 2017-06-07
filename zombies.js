@@ -170,11 +170,19 @@ var Player = function(name, health, strength, speed){
 
  this.takeItem = function(item){
 
-  if (this.pack.length > 3) {
-    return false;
-  } else {
+  if(!(this.pack)){
+    console.log("you equipped... ", item.name);
+    this.pack = [item];
+    return true;
+
+  } else if (!(this.pack.length >= 3)) {
+    console.log("you equipped... ", item.name);
     this.pack.push(item);
     return true;
+
+  } else {
+    console.log("your backpack is full...");
+    return false;
   }
 
  };
