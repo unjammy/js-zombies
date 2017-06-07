@@ -139,6 +139,16 @@ var Player = function(name, health, strength, speed){
  * @name checkPack
  */
 
+ this.checkPack = function(){
+  if(this.pack){
+    this.getPack().forEach(function(item){
+     console.log(item, "... ")
+    });
+  } else{
+    console.log("the pack is empty...");
+  }
+};
+
 
 /**
  * Player Class Method => takeItem(item)
@@ -158,6 +168,16 @@ var Player = function(name, health, strength, speed){
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
 
+ this.takeItem = function(item){
+
+  if (this.pack.length > 3) {
+    return false;
+  } else {
+    this.pack.push(item);
+    return true;
+  }
+
+ };
 
 /**
  * Player Class Method => discardItem(item)
