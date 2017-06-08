@@ -416,6 +416,11 @@ var Zombie = function(health, strength, speed){
  * @param {number} speed            The zombie's speed.
  */
 
+var FastZombie = function(health, strength, speed){
+
+  Zombie.call(this, health, strength, speed);
+
+};
 
 /**
  * FastZombie Extends Zombie Class
@@ -439,6 +444,11 @@ var Zombie = function(health, strength, speed){
  * @param {number} speed            The zombie's speed.
  */
 
+var StrongZombie = function(health, strength, speed){
+
+  Zombie.call(this, health, strength, speed);
+
+};
 
 /**
  * StrongZombie Extends Zombie Class
@@ -462,6 +472,11 @@ var Zombie = function(health, strength, speed){
  * @param {number} speed            The zombie's speed.
  */
 
+var RangedZombie = function(health, strength, speed){
+
+  Zombie.call(this, health, strength, speed);
+
+};
 
 /**
  * RangedZombie Extends Zombie Class
@@ -484,6 +499,12 @@ var Zombie = function(health, strength, speed){
  * @param {number} strength         The zombie's strength.
  * @param {number} speed            The zombie's speed.
  */
+
+ var ExplodingZombie = function(health, strength, speed){
+
+  Zombie.call(this, health, strength, speed);
+
+};
 
 
 /**
