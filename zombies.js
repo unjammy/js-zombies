@@ -163,6 +163,16 @@ class Player {
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
 
+ takeItem(item){
+
+  if( this.getPack().length >= 3 ){
+    console.log("Your Backpack is Full... ");
+    return false;
+  } else {
+    this.getPack().push(item);
+  }
+
+ }
 
 /**
  * Player Class Method => discardItem(item)
