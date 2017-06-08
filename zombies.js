@@ -318,6 +318,18 @@ class Player {
  * @param {Item/Weapon/Food} item   The item to use.
  */
 
+ useItem(item){
+
+  if( item instanceof Weapon ){
+    this.equip(item);
+  } else if( item instanceof Food ){
+    this.eat(item);
+  } else {
+    console.log("You show off your ", item.name);
+  }
+
+ }
+
 
 /**
  * Player Class Method => equippedWith()
