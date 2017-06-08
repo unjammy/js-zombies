@@ -286,6 +286,24 @@ class Player {
  * @param {Food} itemToEat  The food item to eat.
  */
 
+ eat(food){
+
+  if(food instanceof Food){
+    if ( this.getPack().indexOf(food) !== -1){
+      if ( (this.health + food.energy) >= this.getMaxHealth() ){
+        this.health = this.getMaxHealth();
+      } else {
+        this.health = this.health + food.energy;
+      }
+      this.getPack().splice(this.getPack().indexOf(food), 1);
+    } else {
+      console.log("You don't own that Food...");
+    }
+  } else {
+    console.log("You may only eat Food...");
+  }
+
+ }
 
 /**
  * Player Class Method => useItem(item)
