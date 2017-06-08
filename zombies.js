@@ -345,6 +345,22 @@ class Player {
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
 
+ equippedWith(){
+
+  if(this.equipped !== false){
+
+    console.log(this.name, " has ", this.equipped, " equipped...");
+    return this.equipped.name;
+
+  } else {
+
+    console.log(this.name, " does not have a weapon equipped...");
+    return false;
+
+  }
+
+ }
+
 }
 /**
  * Class => Zombie(health, strength, speed)
