@@ -427,7 +427,9 @@ var FastZombie = function(health, strength, speed){
  * -----------------------------
  */
 
-
+FastZombie.prototype = Object.create(Zombie.prototype, {
+  constructor: FastZombie
+});
 
 /**
  * Class => StrongZombie(health, strength, speed)
@@ -455,7 +457,9 @@ var StrongZombie = function(health, strength, speed){
  * -----------------------------
  */
 
-
+StrongZombie.prototype = Object.create(Zombie.prototype, {
+  constructor: StrongZombie
+});
 
 /**
  * Class => RangedZombie(health, strength, speed)
@@ -483,7 +487,9 @@ var RangedZombie = function(health, strength, speed){
  * -----------------------------
  */
 
-
+RangedZombie.prototype = Object.create(Zombie.prototype, {
+  constructor: RangedZombie
+});
 
 /**
  * Class => ExplodingZombie(health, strength, speed)
@@ -512,7 +518,9 @@ var RangedZombie = function(health, strength, speed){
  * -----------------------------
  */
 
-
+ExplodingZombie.prototype = Object.create(Zombie.prototype, {
+  constructor: ExplodingZombie
+});
 
 
 /**
