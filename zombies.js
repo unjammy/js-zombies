@@ -106,8 +106,8 @@ class Food extends Item {
 class Player {
 
   constructor(name, health, strength, speed){
-    var pack;
-    var maxHealth = health;
+    this._pack = [];
+    this._maxHealth = health;
     this.name = name;
     this.health = health;
     this.strength = strength;
@@ -117,15 +117,11 @@ class Player {
   }
 
   getPack(){
-    if(this.pack !== undefined){
-      return this.pack;
-    } else {
-      return [];
-    }
+    return this._pack;
   }
 
   getMaxHealth(){
-    return this.maxHealth;
+    return this._maxHealth;
   }
 
 
@@ -142,6 +138,12 @@ class Player {
  * @name checkPack
  */
 
+ checkPack(){
+  console.log("Your backpack contents...");
+  this._pack.forEach(function(item){
+    console.log(item.name, "... ");
+  });
+ }
 
 /**
  * Player Class Method => takeItem(item)
