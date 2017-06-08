@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 /**
  * Class => Item(name)
  * -----------------------------
@@ -200,6 +201,22 @@ class Player {
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 
+ discardItem(item){
+
+  if( this.getPack().indexOf(item) !== -1){
+
+    this.getPack().splice(this.getPack().indexOf(item), 1);
+    console.log(this.name, " has discarded ", item.name);
+    return true;
+
+  } else {
+
+    console.log("You don't own that item...");
+    return false;
+
+  }
+
+ }
 
 /**
  * Player Class Method => equip(itemToEquip)
