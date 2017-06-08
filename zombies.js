@@ -357,6 +357,22 @@ var Player = function(name, health, strength, speed){
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
 
+ this.equippedWith = function(){
+
+  if(this.equipped !== false){
+
+    console.log(this.name, " has ", this.equipped, " equipped...");
+    return this.equipped.name;
+
+  } else {
+
+    console.log(this.name, " does not have a weapon equipped...");
+    return false;
+
+  }
+
+ };
+
 };
 
 /**
@@ -375,6 +391,15 @@ var Player = function(name, health, strength, speed){
  * @property {boolean} isAlive      Default value should be `true`.
  */
 
+var Zombie = function(health, strength, speed){
+
+  var maxHealth = health;
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  this.isAlive = true;
+
+};
 
 /**
  * Class => FastZombie(health, strength, speed)
