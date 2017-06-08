@@ -238,6 +238,34 @@ class Player {
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
 
+ equip(weapon){
+  var itemToEquip = {};
+  if(weapon instanceof Weapon) {
+
+    if(this.equipped === false && this.getPack().indexOf(weapon) !== -1){
+      itemToEquip = this.getPack().splice(this.getPack().indexOf(weapon), 1);
+      this.equipped = itemToEquip[0];
+      console.log(this.name, " had nothing equipped but now has...", this.equipped);
+
+    } else if ( this.equipped !== false && this.getPack().indexOf(weapon) !== -1){
+
+      itemToEquip = this.getPack().splice(this.getPack().indexOf(weapon), 1, this.equipped);
+      this.equipped = itemToEquip[0];
+      console.log(this.name, " had something equipped but now has...", this.equipped);
+
+    } else {
+
+      console.log("You don't own that Weapon...");
+
+    }
+  } else {
+
+    console.log("You may only equip Weapons...");
+
+  }
+
+ }
+
 
 /**
  * Player Class Method => eat(itemToEat)
