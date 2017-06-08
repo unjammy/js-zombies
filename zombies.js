@@ -328,6 +328,20 @@ var Player = function(name, health, strength, speed){
  * @param {Item/Weapon/Food} item   The item to use.
  */
 
+ this.useItem = function(item){
+
+  if ( item instanceof Food) {
+    this.eat(item);
+    console.log("you ate... ", item);
+  } else if (item instanceof Weapon) {
+    this.equip(item);
+    console.log("you equipped... ", item);
+  } else {
+    console.log("you show off your... ", item, " to the world!");
+  }
+
+ };
+
 
 /**
  * Player Class Method => equippedWith()
