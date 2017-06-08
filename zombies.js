@@ -104,7 +104,8 @@ Food.prototype = Object.create(Item.prototype, {
  */
 
 var Player = function(name, health, strength, speed){
-  this.pack;
+  var pack;
+  var maxHealth = health;
   this.name = name;
   this.health = health;
   this.strength = strength;
@@ -122,7 +123,7 @@ var Player = function(name, health, strength, speed){
   };
 
   this.getMaxHealth = function(){
-    return this.health;
+    return maxHealth;
   };
 
 
@@ -224,7 +225,7 @@ var Player = function(name, health, strength, speed){
 
   } else{
 
-    console.log("you dont own that item");
+    console.log("you dont own that item...");
     return false;
 
   }
@@ -251,6 +252,30 @@ var Player = function(name, health, strength, speed){
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
 
+ this.equip = function(weapon){
+  var itemToEquip = {};
+
+  if( weapon instanceof Weapon && this.pack !== undefined ){
+
+    if (  this.equipped === false && this.pack.indexOf(weapon) !== -1  ){
+
+      itemToEquip = this.pack.splice(this.pack.indexOf(weapon), 1);
+      this.equipped = itemToEquip[0];
+      console.log(this.name, " had nothing equipped but now has...", this.equipped);
+
+    } else if( this.equipped !== false && this.pack.indexOf(weapon) !== -1 ) {
+
+      itemToEquip = this.pack.splice(this.pack.indexOf(weapon), 1, this.equipped);
+      this.equipped = itemToEquip[0];
+      console.log(this.name, " had something equipped but now has...", this.equipped);
+
+    } else {
+
+      console.log("you don't own that weapon... ");
+
+    }
+  }
+ };
 
 /**
  * Player Class Method => eat(itemToEat)
@@ -271,6 +296,24 @@ var Player = function(name, health, strength, speed){
  * @param {Food} itemToEat  The food item to eat.
  */
 
+ this.eat = function(food){
+
+  if( food instanceof Food && this.pack !== undefined ){
+
+    if( this.pack.indexOf(food) === -1 ){
+      console.log("you don't own, ", food);
+    } else if ( (this.health + food.energy) >= this.getMaxHealth() ) {
+      this.pack.splice(this.pack.indexOf(food), 1);
+      this.health = this.getMaxHealth();
+    } else {
+      this.pack.splice(this.pack.indexOf(food), 1);
+      this.health = this.health + food.energy;
+    }
+
+
+  }
+
+ };
 
 /**
  * Player Class Method => useItem(item)
